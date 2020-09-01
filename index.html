@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- <====== MAJOR KEY FOR MOBILE -->
+    <title>Document</title>
+    <script>
+        // Play first barn sound
+        const antEaterListener = () => {
+            const antEater = document.getElementById("anteater");
+            console.log(antEater)
+            antEater.play();
+        }
+
+        const ginnyYouShit = () => {
+            const ginnyYouLilShit = document.getElementById("ginnyyoushit");
+            console.log(ginnyYouLilShit)
+            ginnyYouLilShit.play();
+            moveToGinny();
+        }
+
+        const moveToGinny = () => {
+            const ginnyInterval = setInterval(() => {
+                const ginny = document.getElementById("ginny");
+                console.log(ginny.style)
+                ginny.style.top = `${parseInt(ginny.style.top.replace('px', '')) + 5}px`;
+                ginny.style.left = `${parseInt(ginny.style.left.replace('px', '')) + 5}px`;
+            }, 30)
+            setTimeout( ()=>{
+                clearInterval(ginnyInterval);
+            }, 2000)
+        }
+
+        /* const moveFromGinny = () => {
+
+            let startPosition = 200;
+            let animation = setInterval(() => {
+                const ginny = document.getElementById("ginny");
+                // ginny.style.top += 10
+                // ginny.style.left += 10
+                if (startPosition == 150) {
+                    clearInterval(animation);
+                } else {
+                    startPosition++;
+                    ginny.style.top  = startPosition + "em";
+                    ginny.style.left = startPosition + "em";
+                }
+
+            }, 100);
+        } */
+    </script>
+</head>
+<body>
+    <h1>THESE ARE THE ANIMALS HERE US ROAR!! (RAWR)</h1>
+    <audio id="anteater" autoplay src="https://www.google.com/logos/fnbx/animal_sounds/anteater.mp3"></audio>
+    <audio id="ginnyyoushit" autoplay src="https://storage.googleapis.com/all-things-goatish/GinnyYouShit-%5BAudioTrimmer.com%5D.m4a"></audio></audio></audio>
+    <button onclick="antEaterListener()">Play anteater sound</button>
+    <img onclick="ginnyYouShit()" src="https://storage.googleapis.com/all-things-goatish/ginnysfriend.jpg" height="100px" >
+    <!-- Our Awesome Playback goes -->
+    <!-- Buttons for back, play, next -->
+    <div id="buttons">
+        <button id="back">🔙</button>
+        <button id="play">🔊</button>
+        <button id="pause">⏸️</button>
+        <button id="next">⏩</button>
+    </div>
+    <img src="https://storage.googleapis.com/all-things-goatish/Image%20from%20iOS%20(11).jpg" id="ginny" class="ginnys" alt="Ginny being a shit" style="position: absolute; height: 100px; top: -100px; left: -100px;" >
+</body>
+</html>
